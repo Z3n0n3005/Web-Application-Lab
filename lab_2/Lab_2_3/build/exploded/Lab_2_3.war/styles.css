@@ -1,4 +1,10 @@
 .header_top_dec{
+    padding: 0 100px;
+}
+.header_top_left_dec{
+    
+}
+.header_top_right_dec{
     
 }
 .header_bottom_dec{
@@ -35,4 +41,36 @@
 }
 .footer_copyright_dec{
     
+}
+.dang_ky_tuoi_tre_dec{
+    background: #5580df;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #fff;
+    padding: 4px 16px;
+    margin-left: 8px;
+    font-weight: 500;
+}
+.help_dec{
+    margin-left: 10px;
+    padding-top: 6px;
+    padding: 0 12px;
+    /*box-sizing: border-box;*/
+}
+.login_dec{
+    padding: 0 12px;
+
+}
+.search_icon{
+    padding: 0 12px;
+
+}
+
+.header_link_dec{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    color: #fff;
+    padding: 0 12px;
+}
 }

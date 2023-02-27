@@ -18,4 +18,11 @@ body{
     padding: 0;
     margin: 0;
 }
+li{
+    text-decoration: none;
+    display: inline-flex;
+}
+ul{
+    margin: 0;
+}
 

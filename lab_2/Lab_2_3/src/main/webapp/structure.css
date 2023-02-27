@@ -40,6 +40,24 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css
     
 }
 
+.header_top_left_flex{
+    align-items: center; 
+    
+}
+
+.header_top_right_flex{
+    
+}
+
+.header_top_container_flex{
+    justify-content: center;
+}
 .header_bottom_flex{
     
+}
+.header_right{
+    text-align: right;
+}
+.header_top_spacer_flex{
+    flex-grow: 1;
 }
