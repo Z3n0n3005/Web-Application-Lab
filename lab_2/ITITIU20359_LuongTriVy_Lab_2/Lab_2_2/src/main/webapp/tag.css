@@ -1,0 +1,40 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Feb 25, 2023, 9:23:26 PM
+    Author     : vy
+*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+div{
+    margin: 0;
+    padding: 0;
+}
+html{
+    height: 100%;
+}
+body{
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto';
+}
+li{
+    text-decoration: none;
+    display: inline-flex;
+    flex-wrap: nowrap;
+}
+ul{
+    margin: 0;
+}
+figure{
+    margin: 0;
+}
+h3{
+    color: #333;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 22px 0;
+    line-height: 27px;
+}

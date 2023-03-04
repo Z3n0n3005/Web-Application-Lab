@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    
+    <body>
+        <h1 style="border-bottom: 1px black solid">School of Computer Science & Engineering</h1>
+        
+        <h2>Register Form</h2>
+        <form method="post" action="InputPage.jsp">
+            <table>
+                <tbody>
+                    <tr>
+                        <th>Full Name</th>
+                        <td><input type="text" name ="full_name" size="20"></td>
+                    </tr>
+                    <tr>
+                        <th>ID</th>
+                        <td><input type="text" name ="ID" size="15"></td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td><input type="text" name ="email" size="20"></td>
+                    </tr>
+                    <tr>
+                        <th>Gender</th>
+                        <td>
+                            <input type="radio" value="r1" checked name="gender">Male
+                            <input type="radio" value="r1" checked name="gender">Female
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Field of study</th>
+                        <td>
+                            <select name="field_of_study">
+                                <option value="CS">CS</option>
+                                <option value="IM">IM</option>
+                                <option value="EE">EE</option>
+                                <option value="BA">BA</option>
+                                <option value="BE">BE</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><input type="checkbox" name="c1" value="ON">Principle of EE 1</td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><input type="checkbox" name="c2" value="ON">Computer Network</td>
+                    </tr>
+                    <tr>
+                        <th>List of subjects</th>
+                        <td><input type="checkbox" name="c3" value="ON">Web Application Development</td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><input type="checkbox" name="c4" value="ON">Object Oriented Programming</td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td><input type="checkbox" name="c5" value="ON">Computer Graphics</td>
+                    </tr>
+                    <tr>
+                        <th>Comments</th>
+                        <td><textarea rows="5" name="tr1" cols="30"></textarea><br></td>
+                    </tr>
+                    <tr>
+                        <th><input type="submit" value="Submit"></th>
+                        <td><input type="reset" value="Cancel"></td>
+                    </tr>
+                    <tr>
+                        <th></th>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </form>
+    </body>
+</html>

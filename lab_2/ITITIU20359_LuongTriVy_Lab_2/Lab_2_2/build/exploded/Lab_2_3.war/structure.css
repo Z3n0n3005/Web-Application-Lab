@@ -1,0 +1,122 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Feb 25, 2023, 9:21:56 PM
+    Author     : vy
+*/
+.column_container_flex{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.row_container_flex{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+.content_container_flex{
+    justify-content: center;
+}
+.content_control_flex{
+    flex-grow: 0;
+}
+.content_main_flex{
+    flex-grow: 1;
+}
+.content_more_flex{
+    
+}
+.content{
+    padding: 0px 20px;
+}
+.content_sync_flex{
+    flex-grow: 1;
+    overflow: scroll;
+}
+
+.header_top_flex{
+}
+
+.header_top_left_flex{
+    align-items: center; 
+    
+}
+
+.header_top_right_flex{
+    
+}
+
+.header_top_container_flex{
+    justify-content: center;
+    height: auto;
+}
+.header_bottom_flex{
+    
+}
+.header_right{
+    text-align: right;
+}
+.header_top_spacer_flex{
+    flex-grow: 1;
+}
+.header_bottom_center_flex{
+    
+}
+.header_bottom_container_flex{
+    justify-content: center;
+}
+.detail_top_container_flex{
+    justify-content: space-between;
+}
+.article_info_container_flex{
+    justify-content: space-between;
+    height: auto;
+}
+.author_flex{
+    
+}
+.author_container_flex{
+    align-items: center;
+    height:auto;
+    width: 100%;
+}
+.article_action_container_flex{
+    align-items: center;
+    height: auto;
+}
+.google_news_container_flex{
+    
+}
+.react_info_container_flex{
+    align-items: center;
+    height: auto;
+}
+.content_more_item_container_flex{
+    
+}
+.send_react_container_flex{
+    align-items: center;
+    height: auto;
+    width: fit-content;
+}
+.footer_top_dec_container_flex{
+    justify-content: center;
+}
+.inner_top_menu_nav_container_flex{
+    height: auto;
+}
+.footer_bottom_inner_container_flex{
+    height: auto;
+}
+.footer_bottom_social_container_flex{
+    align-items: center;
+    height: auto;
+}
+.footer_bottom_middle_container_flex{
+    height: auto;
+}
+.related_news_content_container_flex{
+    justify-content: flex-start;
+}
