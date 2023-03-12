@@ -4,7 +4,10 @@
     Author     : vy
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,11 +27,11 @@
                     </tr>
                     <tr>
                         <th>ID</th>
-                        <td><input type="text" name ="ID" size="15"></td>
+                        <td><input type="text" name ="id" size="15"></td>
                     </tr>
                     <tr>
                         <th>Email</th>
-                        <td><input type="text" name ="email" size="20"></td>
+                        <td><input type="email" name ="email" size="20"></td>
                     </tr>
                     <tr>
                         <th>Gender</th>
@@ -38,7 +41,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>Field of study</th>
+                        <th>List of subjects</th>
                         <td>
                             <select name="field_of_study">
                                 <option value="Computer Science">CS</option>
@@ -48,26 +51,25 @@
                             </select>
                         </td>
                     </tr>
-                    
                     <tr>
                         <th></th>
-                        <td><input type="checkbox" name="c1" value="ON">Principle of EE 1</td>
+                        <td><input type="checkbox" name="checkbox" value="Principle of EE 1">Principle of EE 1</td>
                     </tr>
                     <tr>
                         <th></th>
-                        <td><input type="checkbox" name="c2" value="ON">Computer Network</td>
+                        <td><input type="checkbox" name="checkbox" value="Computer Network">Computer Network</td>
                     </tr>
                     <tr>
                         <th>List of subjects</th>
-                        <td><input type="checkbox" name="c3" value="ON">Web Application Development</td>
+                        <td><input type="checkbox" name="checkbox" value="Web Application Development">Web Application Development</td>
                     </tr>
                     <tr>
                         <th></th>
-                        <td><input type="checkbox" name="c4" value="ON">Object Oriented Programming</td>
+                        <td><input type="checkbox" name="checkbox" value="Object Oriented Programming">Object Oriented Programming</td>
                     </tr>
                     <tr>
                         <th></th>
-                        <td><input type="checkbox" name="c5" value="ON">Computer Graphics</td>
+                        <td><input type="checkbox" name="checkbox" value="Computer Graphics">Computer Graphics</td>
                     </tr>
                     <tr>
                         <th>Comments</th>

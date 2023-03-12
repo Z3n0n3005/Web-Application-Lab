@@ -7,6 +7,7 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,11 +27,11 @@
                     </tr>
                     <tr>
                         <th>ID</th>
-                        <td><input type="text" name ="ID" size="15"></td>
+                        <td><input type="text" name ="id" size="15"></td>
                     </tr>
                     <tr>
                         <th>Email</th>
-                        <td><input type="text" name ="email" size="20"></td>
+                        <td><input type="email" name ="email" size="20"></td>
                     </tr>
                     <tr>
                         <th>Gender</th>
@@ -68,7 +69,7 @@
                     </tr>
                     <tr>
                         <th></th>
-                        <td><input type="checkbox" name="c5" value="Computer Graphics">Computer Graphics</td>
+                        <td><input type="checkbox" name="checkbox" value="Computer Graphics">Computer Graphics</td>
                     </tr>
                     <tr>
                         <th>Comments</th>

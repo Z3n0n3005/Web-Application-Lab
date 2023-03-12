@@ -1,0 +1,15 @@
+apply plugin: 'java'
+apply plugin: 'jacoco'
+apply plugin: 'war'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    providedCompile 'javax:javaee-web-api:8.0'
+    
+    testImplementation     'junit:junit:4.13'
+
+    implementation(files("/media/vy/OneDrive/3/Sem 2/Web Application Development/lab/lab_4/mysql-connector-java-8.0.18.jar/mysql-connector-java-8.0.18.jar"))
+}
