@@ -1,0 +1,39 @@
+create table admin(
+aid int not null auto_increment,
+name varchar(250) not null,
+email varchar(250) not null,
+password varchar(250) not null,
+dob varchar(250) not null,
+gender varchar(250) not null,
+role varchar(250) not null,
+primary key(aid),
+unique index email_UNIQUE (email asc)visible);
+
+create table movie(
+mid int not null auto_increment,
+name varchar(250) not null,
+director varchar(450) not null,
+releasedate varchar(45) not null,
+casts varchar(450) not null,
+description varchar(450) not null,
+poster varchar(250) not null,
+duration varchar(45) not null,
+trailerlink varchar(100) not null,
+primary key(mid),
+unique index name_UNIQUE (name asc)visible);
+
+create table category(
+cid int not null auto_increment,
+name varchar(45) not null,
+description varchar(450) not null,
+primary key (cid));
+
+alter table movie
+add index cid_idx (category asc) visible;
+
+alter table movie
+add constraint cid
+foreign key (category)
+references category(cid)
+on delete cascade
+on update cascade;

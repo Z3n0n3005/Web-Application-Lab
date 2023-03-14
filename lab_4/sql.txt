@@ -1,0 +1,25 @@
+CREATE TABLE IF NOT EXISTS course(
+CourseID bigint(20) NOT NULL auto_increment,
+CourseName varchar(255) NOT NULL,
+PRIMARY KEY  (CourseID),
+KEY Course_CourseID_INDEX (CourseID)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+
+CREATE TABLE IF NOT EXISTS student (
+StudentID int(11) NOT NULL auto_increment,
+StudentName varchar(255) NOT NULL,
+PRIMARY KEY  (StudentID)) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6;
+
+CREATE TABLE IF NOT EXISTS studentcourse (
+StudentID bigint(20) NOT NULL,
+CourseID bigint(20) NOT NULL,
+PRIMARY KEY  (StudentID,CourseID),
+KEY StudentCourse_StudentID_INDEX (StudentID),
+KEY StudentCourse_CourseID_INDEX (CourseID)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+select s.StudentName, c.CourseName
+from studentcourse sc
+join student s on s.StudentID = sc.StudentID
+join course c on c.CourseID = sc.CourseID;
+
