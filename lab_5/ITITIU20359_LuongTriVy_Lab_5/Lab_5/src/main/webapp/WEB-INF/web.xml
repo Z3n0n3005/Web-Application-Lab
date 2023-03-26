@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+    <servlet>
+        <servlet-name>SimpleCookie</servlet-name>
+        <servlet-class>Lab_5.SimpleCookie</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SimpleCookie</servlet-name>
+        <url-pattern>/SimpleCookie</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CookieExample</servlet-name>
+        <servlet-class>Lab_5.CookieExample</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CookieExample</servlet-name>
+        <url-pattern>/CookieExample</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>RepeatVisitor</servlet-name>
+        <servlet-class>Lab_5.RepeatVisitor</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RepeatVisitor</servlet-name>
+        <url-pattern>/RepeatVisitor</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ShowSession</servlet-name>
+        <servlet-class>Lab_5.ShowSession</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShowSession</servlet-name>
+        <url-pattern>/ShowSession</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

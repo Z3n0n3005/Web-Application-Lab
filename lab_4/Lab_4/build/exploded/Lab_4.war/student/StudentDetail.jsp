@@ -4,6 +4,7 @@
     Author     : vy
 --%>
 
+<%@page import="java.nio.charset.StandardCharsets"%>
 <%@page import="course.CourseDao"%>
 <%@page import="course.Course"%>
 <%@page import="java.util.List"%>
@@ -12,12 +13,15 @@
 <%@page import="student.StudentDao"%>
 <%@page import="connection.ConnectionDB"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <% 
     String StudentID = request.getParameter("StudentID"); 
     String StudentName = request.getParameter("StudentName");
     StudentDao sao = new StudentDao(ConnectionDB.getCon());
     CourseDao cao = new CourseDao(ConnectionDB.getCon());
     StudentCourseDao scao = new StudentCourseDao(ConnectionDB.getCon());
+    response.setContentType("text/html;charset=UTF-8");
+    request.setCharacterEncoding("utf-8");
 %> 
 <!DOCTYPE html>
 <html>
@@ -33,14 +37,18 @@
         Course: 
         <form>
             <input type="hidden" name="StudentID" value=<%=StudentID%>>
-            <input type="hidden" name="StudentName" value=<%=java.net.URLEncoder.encode(StudentName, "UTF-8") %>>
+            
+            <input type="hidden" name="StudentName" value=<%=StudentName.replaceAll("//s+", "_")%>>
 
             <select name="field_of_study">
                 <%
                     List<Course> listAllAvailableCourse = cao.listAllCourse();
                     for(Course course : listAllAvailableCourse){
                         String CourseName = course.getCourseName();
-                        out.print("<option value=" + java.net.URLEncoder.encode(CourseName, "UTF-8") +">" + CourseName + "</option>");
+                        String CourseNameRep = CourseName.replaceAll("//s+", "_");
+//                        out.print("<option value=" + java.net.URLEncoder.encode(CourseName, StandardCharsets.UTF_8.toString()) +">" + CourseName + "</option>");
+                        out.print("<option value=" + CourseNameRep +">" + CourseName + "</option>");
+
                     }
                 %>
             </select>
@@ -49,11 +57,17 @@
         <% 
             if(request.getParameter("Add")!= null){
                 if(request.getParameter("Add").equals("Add")){
-                    String CourseNameDecoded = java.net.URLDecoder.decode(request.getParameter("field_of_study"), "UTF-8");
-                    String StudentNameDecoded = java.net.URLDecoder.decode(request.getParameter("StudentName"), "UTF-8");
+//                    String CourseNameDecoded = java.net.URLDecoder.decode(request.getParameter("field_of_study"), StandardCharsets.UTF_8.toString());
+//                    String StudentNameDecoded = java.net.URLDecoder.decode(request.getParameter("StudentName"), StandardCharsets.UTF_8.toString());
+                    String CourseNameDecoded = request.getParameter("field_of_study").replaceAll("_", " ");
+                    out.println(CourseNameDecoded);
+                    String StudentNameDecoded = request.getParameter("StudentName").replaceAll("_", " ");
+                    out.println(StudentNameDecoded);
+
                     Integer CourseID = cao.findCourseID(CourseNameDecoded);
                     scao.addStudentCourse(Integer.valueOf(StudentID), CourseID);
                     response.sendRedirect("StudentDetail.jsp?StudentName=" + StudentNameDecoded + "&StudentID=" + StudentID);
+                    
                 }
             }
             

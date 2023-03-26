@@ -7,6 +7,7 @@
 <%@page import="studentcourse.StudentCourseDao"%>
 <%@page import="connection.ConnectionDB"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <% 
     String StudentID = request.getParameter("StudentID"); 
     String StudentName = request.getParameter("StudentName"); 
@@ -17,6 +18,8 @@
     String from = request.getParameter("from");
 
     StudentCourseDao scao = new StudentCourseDao(ConnectionDB.getCon());
+    response.setContentType("text/html;charset=UTF-8");
+    request.setCharacterEncoding("utf-8");
 %>
 <!DOCTYPE html>
 <html>
@@ -38,6 +41,7 @@
         </form>
         
         <%
+                        
                 if(request.getParameter("remove")!=null){
                     if(request.getParameter("remove").equals("Remove")){
                         scao.removeStudentCourse(Integer.valueOf(StudentID),Integer.valueOf(CourseID));

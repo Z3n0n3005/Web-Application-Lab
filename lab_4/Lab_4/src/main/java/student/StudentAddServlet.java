@@ -36,6 +36,7 @@ public class StudentAddServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         try (PrintWriter out = response.getWriter()) {
             StudentDao sao = new StudentDao(ConnectionDB.getCon());
             sao.addStudent(request.getParameter("StudentName"));

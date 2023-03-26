@@ -37,8 +37,11 @@ public class CourseListServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ClassNotFoundException, SQLException {
-        response.setContentType("text/html;charset=UTF-8");
+                response.setContentType("text/html;charset=UTF-8");
+            request.setCharacterEncoding("utf-8");
         try (PrintWriter out = response.getWriter()) {
+    
+            
             CourseDao cao = new CourseDao(ConnectionDB.getCon());
             List<Course> listAllCourse = cao.listAllCourse();
             for(Course course: listAllCourse){

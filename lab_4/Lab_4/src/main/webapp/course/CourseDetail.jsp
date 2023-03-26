@@ -10,6 +10,7 @@
 <%@page import="connection.ConnectionDB"%>
 <%@page import="course.CourseDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <% 
     String CourseID = request.getParameter("CourseID"); 
     String CourseName = request.getParameter("CourseName");
