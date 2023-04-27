@@ -35,31 +35,33 @@ public class CookieExample extends HttpServlet {
         // print out cookies
 
         Cookie[] cookies = request.getCookies();
-        out.println("Print out the cookies<br>");
-        for (int i = 0; i < cookies.length; i++) {
-            Cookie c = cookies[i];
-            String name = c.getName();
-            String value = c.getValue();
+        if(cookies != null){
+            out.println("Print out the cookies<br>");
+            for (int i = 0; i < cookies.length; i++) {
+                Cookie c = cookies[i];
+                String name = c.getName();
+                String value = c.getValue();
 
-            out.println("Name: " + name + "<br>");
-            out.println("Content: " + value + "<br>");
+                out.println("Name: " + name + "<br>");
+                out.println("Content: " + value + "<br>");
 
-        }
-        out.println("<hr>");
+            }
+            out.println("<hr>");
 
-        // set a cookie
+            // set a cookie
 
-        String name = request.getParameter("cName");
-        if (name != null && name.length() > 0) {
-            String value = request.getParameter("cValue");
-            Cookie c = new Cookie(name, value);
-            c.setMaxAge(-1); // Put 0 if expire immediate, -1 if exit browser
-            response.addCookie(c);
-            out.println("Set a new cookie:<br>");
-            out.println("Name: " + c.getName() + "<br>");
-            out.println("Cookie value: " + c.getValue() + "<br>");
+            String name = request.getParameter("cName");
+            if (name != null && name.length() > 0) {
+                String value = request.getParameter("cValue");
+                Cookie c = new Cookie(name, value);
+                c.setMaxAge(-1); // Put 0 if expire immediate, -1 if exit browser
+                response.addCookie(c);
+                out.println("Set a new cookie:<br>");
+                out.println("Name: " + c.getName() + "<br>");
+                out.println("Cookie value: " + c.getValue() + "<br>");
 
 
+            }
         }
     }
 

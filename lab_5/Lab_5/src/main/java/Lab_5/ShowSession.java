@@ -51,12 +51,13 @@ public class ShowSession extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-
-        HttpSession session = request.getSession(false);
+        
+        HttpSession session = request.getSession(true);
         // out.println(new Date(session.getCreationTime()));
         Integer accessNum = 0;
         String title;
-        if(session.isNew()){
+        
+        if(session == null || session.isNew()){
             session = request.getSession();
             title = "Welcome, Newcomer";
             session.setAttribute("accessNum", accessNum.toString());
