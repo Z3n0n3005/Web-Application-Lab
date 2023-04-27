@@ -53,6 +53,7 @@ public class ShoppingServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        doPost(request, response);
         processRequest(request, response);
     }
 
@@ -69,14 +70,21 @@ public class ShoppingServlet extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         System.out.println(request.getParameter("idDel") + " " + request.getParameter("submit"));
+
+        if(request.getParameter("submit") != null && request.getParameter("submit").equals("Submit")){
+            acc = null;
+            productList = null;
+            total = "0";
+            productId = 0;
+        }
         
         createAcc(request, response);
         
-        request.setAttribute("acc", acc);
-
         deleteProductFromProductList(request, response);
 
         createProductList(request, response);
+
+        request.setAttribute("acc", acc);
         request.setAttribute("productList", productList);
         request.setAttribute("total", total);
         

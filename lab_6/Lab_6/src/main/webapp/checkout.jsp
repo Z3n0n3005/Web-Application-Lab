@@ -14,9 +14,9 @@
     </head>
     <body>
         <jsp:useBean id="acc" scope="session" class="Lab_6.AccountBean"/>
-        <p><b>Customer: <jsp:getProperty name="acc" property="name"/></b></p><br>
-        <p><b>VISA Number: <jsp:getProperty name="acc" property="visaCardNum"/></b></p><br>
-        <p><b>Address: <jsp:getProperty name="acc" property="address"/></b></p><br>
+        <p><b>Customer: <jsp:getProperty name="acc" property="name"/></b></p>
+        <p><b>VISA Number: <jsp:getProperty name="acc" property="visaCardNum"/></b></p>
+        <p><b>Address: <jsp:getProperty name="acc" property="address"/></b></p>
         <p><b>productList</b></p><br>
 
         <hr>
@@ -27,7 +27,7 @@
             String total = (String)request.getAttribute("total");
         %>
 
-        <table>
+        <table style="width:100%" >
             <tbody>
                 <tr>
                     <th>PRODUCT</th>
@@ -64,6 +64,6 @@
             </tbody>
         </table>
         
-        <a href="products.jsp">Shop some more!</a> | <a href="account.jsp">Logout</a>
+        <a href="ShoppingServlet">Shop some more!</a> | <a href="account.jsp">Logout</a>
     </body>
 </html>
