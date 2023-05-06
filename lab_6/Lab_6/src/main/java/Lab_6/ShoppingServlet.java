@@ -36,6 +36,7 @@ public class ShoppingServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("utf-8");
         // try (PrintWriter out = response.getWriter()) {
 
         // }
@@ -69,7 +70,7 @@ public class ShoppingServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
-        System.out.println(request.getParameter("idDel") + " " + request.getParameter("submit"));
+        // System.out.println(request.getParameter("idDel") + " " + request.getParameter("submit"));
 
         if(request.getParameter("submit") != null && request.getParameter("submit").equals("Submit")){
             acc = null;
@@ -108,10 +109,32 @@ public class ShoppingServlet extends HttpServlet {
     }
 
     private void createProductList(HttpServletRequest request, HttpServletResponse response){
+        boolean isDone = false;
         if(productList!= null && request.getParameter("submit") != null){
-            if(request.getParameter("submit").equals("Add to cart")){
-                productList.add(parseProductValue(request, response));
+            if(request.getParameter("submit").equals("Add to cart") ){
+                List<String> currentProduct = parseProductValue(request, response);
+                for(List<String> product: productList){
+                    System.out.println(product);
+
+                    if(Integer.parseInt(product.get(1)) == Integer.parseInt(currentProduct.get(1))){
+                        List<String> prod = new ArrayList<>();
+                        for(int i = 0; i < 5; i++){
+                            prod.add(product.get(i));
+                        }
+                        prod.add(String.valueOf(Integer.parseInt(product.get(5)) + Integer.parseInt(currentProduct.get(5))));
+                        prod.add(String.format("%.2f",Float.parseFloat(product.get(6)) + Float.parseFloat(currentProduct.get(6))));
+                        
+                        productList.remove(product);
+                        productList.add(prod);
+                        isDone = true;
+                        break;
+                    }
+                }
+                if(!isDone){
+                    productList.add(currentProduct);
+                }
                 total = getCurrentTotal(productList);
+                
             }
         }
         if(this.productList == null ) {
@@ -126,7 +149,7 @@ public class ShoppingServlet extends HttpServlet {
 
         if(request.getParameter("submit") != null){
             if(request.getParameter("submit").equals("Delete")){
-                int productId = Integer.parseInt(request.getParameter("idDel"));
+                int productId = Integer.parseInt(request.getParameter("product"));
                 for(List<String> product: productList){
                     if(Integer.parseInt(product.get(0)) == productId){
                         productList.remove(product);
@@ -136,19 +159,21 @@ public class ShoppingServlet extends HttpServlet {
                 total = getCurrentTotal(productList);
             }
         }
-        
     }
 
     private List<String> parseProductValue(HttpServletRequest request, HttpServletResponse response){
         List<String> result = new ArrayList<>();
         Float subTotal;
-        
+        // 0 - id
         result.add(String.valueOf(productId++));
+        
         String productValues = request.getParameter("product");
         String[] productValuesArr = productValues.split("-");
+        // 1 - product, 2 - manufacturer, 3 - country, 4 - price
         for (String productValue : productValuesArr) {
             result.add(productValue);
         }
+        // 5 - quantity
         result.add(request.getParameter("quantity"));
         subTotal = Float.parseFloat(result.get(4)) * Float.parseFloat(result.get(5)); 
         result.add(String.format("%.2f",subTotal));
