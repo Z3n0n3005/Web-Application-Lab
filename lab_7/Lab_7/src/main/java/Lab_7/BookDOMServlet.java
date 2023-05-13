@@ -60,7 +60,7 @@ public class BookDOMServlet extends HttpServlet {
             DocumentBuilder parser = factory.newDocumentBuilder();
 
             // Read the entire document into memory
-            Document document = parser.parse("/media/vy/OneDrive/3/Sem 2/Web Application Development/lab/lab_7/Lab_7/src/main/webapp/exercise 4/book.xml");
+            Document document = parser.parse("/media/vy/OneDrive/3/Sem 2/Web Application Development/lab/lab_7/Lab_7/src/main/java/Lab_7/book.xml");
 
             // Obtain the root node of the tree
             Node booklist = document.getDocumentElement();

@@ -1,11 +1,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<inc
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 <%@page import="org.w3c.dom.*, javax.xml.parsers.*" %>
 <%
   DocumentBuilderFactory docFactory = DocumentBuilderFactory.newInstance();
   DocumentBuilder docBuilder = docFactory.newDocumentBuilder();
-  Document doc = docBuilder.parse("/media/vy/OneDrive/3/Sem 2/Web Application Development/lab/lab_7/Lab_7/src/main/webapp/exercise 2/WebClass.xml");
+  Document doc = docBuilder.parse(getServletContext().getRealPath("/exercise 2/WebClass.xml"));
 %>
 <%!
   public boolean isTextNode(Node n){

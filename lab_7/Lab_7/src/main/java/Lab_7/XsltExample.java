@@ -70,7 +70,7 @@ public class XsltExample extends JFrame
     // preload a document containing a META CONTENT-TYPE.
     // documents[XSLT].loadFile("XSLT-Instructions.html");
     // src/main/webapp/exercise 5/book.xml
-    documents[XML].loadFile("src/main/webapp/exercise 5/book.xml");
+    documents[XML].loadFile("/media/vy/OneDrive/3/Sem 2/Web Application Development/lab/lab_7/Lab_7/src/main/java/Lab_7/book.xml");
 
     documents[XML].setEditable(false);
     tabbedPane.addChangeListener(this);

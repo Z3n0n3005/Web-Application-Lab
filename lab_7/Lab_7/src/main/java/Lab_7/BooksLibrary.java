@@ -15,7 +15,7 @@ import javax.xml.parsers.SAXParser;
  * @author vy
  */
 public class BooksLibrary  extends HandlerBase {
-    protected static final String XML_FILE_NAME = "/media/vy/OneDrive/3/Sem 2/Web Application Development/lab/lab_7/Lab_7/src/main/webapp/exercise 5/book.xml";
+    protected static final String XML_FILE_NAME = "/media/vy/OneDrive/3/Sem 2/Web Application Development/lab/lab_7/Lab_7/src/main/java/Lab_7/book.xml";
     public static void main(String argv[]) {
         // Use the default (non-validating) parser
         SAXParserFactory factory = SAXParserFactory.newInstance();

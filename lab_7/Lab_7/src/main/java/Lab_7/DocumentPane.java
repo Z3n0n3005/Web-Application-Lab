@@ -25,10 +25,10 @@ public class DocumentPane extends JEditorPane {
     loaded = false;
     try {
       System.out.println(url);
+      // super.setPage(url);
       super.setPage(url);
-      // super.setPage(null);
       System.out.println(super.getPage());
-      File file = new File(super.getPage().toString());
+      File file = new File(url.toString());
       setFilename(file.getName());
       loaded = true;
     } catch (IOException ioe) {
@@ -42,8 +42,6 @@ public class DocumentPane extends JEditorPane {
 
   public void setText(String text) {
     super.setText(text);
-    // super.setText("<html><body><h1>hello</h1></body></html>");
-    System.out.println(super.getText());
     setFilename("");
     loaded = true;
   }
