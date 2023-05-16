@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+    <head>
+        <title>Exercise 1</title>
+    </head>
+    <script>
+        var timerID = null
+        var timerRunning = false
+        var timeRemain = 10
+
+        var answer1, answer2
+
+        function stopclock(){
+            if(timerRunning){
+                clearInterval(timerID)
+            }
+            getAnswer()
+            hideQuestion()
+            showSubmit()
+            timerRunning = false
+        }
+        function startclock(){
+            // Make sure the clock is stopped
+            showQuestion();
+            timerID = setInterval("showtime()",1000)
+            timerRunning = true
+        }
+        function showQuestion(){
+            var container = document.getElementById("question")
+            var form = ""
+            form += "<table><tbody><tr><td><h2>There are test questions<h2></td><td></td>"
+            form += "<tr><td>Question 1: How many people are there in your class?</td><td><input type='text' name='question1'></td></tr>"
+            form += "<tr><td>Question 2: How do you feel now?</td><td><input type='radio' name='question2' value='Good'>Good<input type='radio' name='question2' value='Bad'>Bad</td></tr>"
+            form += ""
+
+            container.innerHTML = form
+        }
+        function showSubmit(){
+            var container = document.getElementById("submit")
+            var form = "<h2>Time is up!!!</h2>"
+            form += ""
+            form += "<input type='button' name='submit' value='Submit' onclick='submitAnswer()'>"
+            form += ""
+
+            container.innerHTML = form
+        }
+        function hideQuestion(){
+            var container = document.getElementById("question")
+            container.innerHTML = ""
+        }
+        function getAnswer(){
+            var questionForm = document.forms["exercise2"]
+            answer1 = questionForm.elements["question1"].value
+            answer2 = questionForm.elements["question2"].value
+        }
+        function submitAnswer(){
+            var submitForm = document.forms["exercise2"]
+            var answer = "<h2>Answer</h2>"
+            answer += "<table><tbody><tr><td>Question 1: How many people are there in your class?</td><td>" + answer1 + "</td></tr>"
+            answer += "<tr><td>Question 2: How do you feel now?</td><td>" + answer2 + "</td></tr>"
+            answer += "</tbody></table>"
+            submitForm.innerHTML = answer
+        }
+        function showtime(){
+            if(timeRemain == 0){
+                stopclock()
+            } else {
+                timeRemain--;
+            }
+            var time = new Date(timeRemain*1000);
+            var mm = time.getMinutes()
+            var ss = time.getSeconds()
+            
+            
+            var timeValue = `The remaining time: ${mm}:${ss} [mm:ss]`;
+            document.exercise2.button.value = timeValue
+        }
+    </script>
+    <body>
+        <form name="exercise2">
+            <input type="button" name="button" value="The remaining time: 1:00 [mm:ss]" onclick="startclock()">
+            <hr>
+            <div id="question"></div>
+            <div id="submit"></div>
+        </form>
+        
+    </body>
+</html>

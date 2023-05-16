@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+    <head>
+        <title>Exercise 1</title>
+    </head>
+    <body>
+        <script>
+            function checkInput(){
+                var exercise1 = document.forms["Exercise1"];
+                var fullname = exercise1.elements["fullname"].value;
+                var email = exercise1.elements["email"].value;
+                var username = exercise1.elements["username"].value;
+                var password = exercise1.elements["password"].value;
+                var repassword = exercise1.elements["repassword"].value;
+                console.log(fullname);
+                if(fullname == "" || email == "" || username == "" || password == "" || repassword == ""){
+                    alert("Please fill in all fields");
+                    return false;
+                }
+                if(password != repassword){
+                    alert("Password and Re-enter password must be the same");
+                    return false;
+                }
+                if(email.includes("@") == false){
+                    alert("Email must contain @");
+                    return false;
+                }
+                if(email.includes(".") == false){
+                    alert("Email must contain .");
+                    return false;
+                }
+                document.cookie = "fullname=" + fullname;
+                document.cookie = "email=" + email;
+                document.cookie = "username=" + username;
+                document.cookie = "password=" + password;
+                document.cookie = "repassword=" + repassword;
+                alert("Register successfully");
+            }
+            
+            function prefill(){
+                if(document.cookie != ""){
+                    var cookies = document.cookie.split(";");
+                    var fullname = cookies[0].split("=")[1];
+                    var email = cookies[1].split("=")[1];
+                    var username = cookies[2].split("=")[1];
+                    var password = cookies[3].split("=")[1];
+                    var repassword = cookies[4].split("=")[1];
+                    document.forms["Exercise1"].elements["fullname"].value = fullname;
+                    document.forms["Exercise1"].elements["email"].value = email;
+                    document.forms["Exercise1"].elements["username"].value = username;
+                    document.forms["Exercise1"].elements["password"].value = password;
+                    document.forms["Exercise1"].elements["repassword"].value = repassword;
+                }
+            }
+        </script>
+        <h2>Register to become a member of the website</h2>
+        <form name="Exercise1">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Full Name:</td>
+                        <td><input type="text" name="fullname"></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input type="email" name="email"></td>
+                    </tr>
+                    <tr>
+                        <td>Username:</td>
+                        <td><input type="text" name="username"></td>
+                    </tr>
+                    <tr>
+                        <td>Choose a password:</td>
+                        <td><input type="text" name="password"></td>
+                    </tr>
+                    <tr>
+                        <td>Re-enter password:</td>
+                        <td><input type="text" name="repassword"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="Submit" onclick=checkInput() onload=prefill()></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </body>
+</html>
+
