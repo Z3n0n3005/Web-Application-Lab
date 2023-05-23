@@ -6,7 +6,7 @@
     <script>
         var timerID = null
         var timerRunning = false
-        var timeRemain = 10
+        var timeRemain = 5
 
         var answer1, answer2
 
@@ -21,9 +21,11 @@
         }
         function startclock(){
             // Make sure the clock is stopped
-            showQuestion();
-            timerID = setInterval("showtime()",1000)
-            timerRunning = true
+            if(!timerRunning){
+                showQuestion();
+                timerID = setInterval("showtime()",1000)
+                timerRunning = true
+            }
         }
         function showQuestion(){
             var container = document.getElementById("question")
